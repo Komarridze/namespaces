@@ -1,0 +1,136 @@
+@font-face {
+    font-family: Monolisa;
+    src: url("/fonts/Monolisa R.otf");
+    font-style: normal;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: Monolisa;
+    src: url("/fonts/Monolisa RI.otf");
+    font-style: italic;
+    font-weight: 400;
+}
+
+
+@font-face {
+    font-family: Monolisa;
+    src: url("/fonts/Monolisa B.otf");
+    font-style: bold;
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: Monolisa;
+    src: url("/fonts/Monolisa BI.otf");
+    font-style: bold italic;
+    font-weight: 700;
+}
+
+
+* {
+    --orangeplus: #ffb84c;
+    --navblack: #0d0c0f;
+    --menugray: #161618;
+    --almostwhite: #f1eeee;
+    --turquoise: #03cf8d;
+}
+
+.oplus {
+    background-color: var(--orangeplus);
+}
+
+.navblack {
+    background-color: var(--navblack);
+}
+
+.mgray {
+    background-color: var(--menugray);
+}
+
+
+
+body {
+    background: rgb(226,181,122);
+    background: linear-gradient(173deg, rgba(226,181,122,1) 30%, rgba(255,178,77,1) 100%);
+    display: flex;
+    flex-direction: column;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 75px;
+    width:100vw;
+    padding: 1em;
+    
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: center;
+
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 75px);
+    width: 100vw;
+    background-color: var(--menugray);
+    gap:30px;
+    overflow-y: auto;
+}
+
+.menutextlarge {
+    color:var(--almostwhite);
+    font-family: Monolisa;
+    font-weight: 700;
+    font-size: xx-large;
+}
+
+.menutext {
+    color:var(--almostwhite);
+    font-family: Monolisa;
+    font-weight: 700;
+    font-size: normal;
+}
+
+.menutextsmall {
+    color:gray;
+    font-family: Monolisa;
+    font-weight: 400;
+    font-size: small;
+}
+
+.loginbox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.namespace {
+    color: var(--turquoise);
+    border: 1px solid var(--turquoise);
+    font-family: Monolisa;
+    font-style: normal;
+    font-weight: 400;
+    padding: 1em;
+}
+
+.namespace:hover {
+    background-color: var(--turquoise);
+    color:var(--navblack);
+    cursor: pointer !important;
+}
+
+@media (max-width: 1000px) {
+    
+}

@@ -1,0 +1,181 @@
+/* latin */
+@font-face {
+    font-family: 'Instrument Sans';
+    font-style: italic;
+    font-weight: 400 700;
+    font-stretch: 100%;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/instrumentsans/v1/pxitypc9vsFDm051Uf6KVwgkfoSbSnNPooZAN0lInHGpCWNu15GR.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+    font-family: 'Instrument Sans';
+    font-style: normal;
+    font-weight: 400 700;
+    font-stretch: 100%;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/instrumentsans/v1/pxiTypc9vsFDm051Uf6KVwgkfoSxQ0GsQv8ToedPibnr0SZe1Q.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+
+body {
+    background: linear-gradient(113deg, rgba(41,3,25,1) 0%, rgba(40,5,47,1) 30%, rgba(28,4,47,1) 54%, rgba(2,0,36,1) 100%);
+    
+}
+
+
+bar {
+    background: rgba(0, 0, 0, 0.4);
+    width: 338px;
+    height: 100vh;
+    border-right: 1px rgba(104, 104, 104, 0.3) solid;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
+
+top {
+    border-bottom: 1px rgba(104, 104, 104, 0.3) solid;
+    display: flex;
+    flex-direction: row;
+    height: 72px;
+    align-items: center;
+    justify-content:left;
+    padding: 1vh 1vw 1vh 1vw;
+    gap:10px;
+
+
+}
+
+.instrb {
+    font-family: 'Instrument Sans';
+    font-weight: 900;
+    font-size: larger;
+    font-style: normal;
+}
+
+.instri {
+    font-family: 'Instrument Sans';
+    font-weight: 600;
+    font-size: small;
+    font-style: italic;
+}
+
+.instr {
+    font-family: 'Instrument Sans';
+    font-weight: 900;
+    font-size: large;
+    font-style: normal;
+}
+
+.instrn {
+    font-family: 'Instrument Sans';
+    font-weight: 900;
+    font-size: normal;
+    font-style: normal;
+}
+
+.instrs {
+    font-family: 'Instrument Sans';
+    font-weight: 900;
+    font-size: smaller;
+    font-style: normal;
+}
+
+.salad {
+    background: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.vs {
+    background:rgb(204, 138, 39);
+    padding: 0.1vh 0.3vw 0.1vh 0.3vw;
+    border-radius: 0.5vh;
+}
+
+.git {
+    background:rgb(29, 23, 36);
+    padding: 0.2vh 0.6vw 0.2vh 0.6vw;
+    border-radius: 2vw;
+}
+
+docs {
+    border-bottom: 1px rgba(104, 104, 104, 0.3) solid;
+    display: flex;
+    flex-direction: column;
+    height: 410px;
+    align-items: left;
+    justify-content:left;
+    padding: 1vh;
+}
+
+searchbar {
+    background-color: rgb(26, 26, 26);
+    border: 1px solid rgba(143, 139, 139, 0.226);
+    border-radius: 0.5vw;
+    margin: 0.2vh 0.2vw 0.2vh 0.2vw;
+    height: 10%;
+    width:95%;
+    gap:5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+    padding: 0 1em 0 1em;
+    color:gray;
+}
+
+.search {
+    border: none;
+    background: transparent;
+    outline: none;
+    color:rgb(158, 156, 156);
+    font-size: small;
+}
+
+docnames {
+    border-bottom: 1px rgba(104, 104, 104, 0.3) solid;
+    display: flex;
+    flex-direction: column;
+    height: 70%;
+    align-items: left;
+    justify-content:left;
+    padding: 1vh;
+}
+
+docfoot {
+    height: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content:left;
+    padding: 1vh;
+}
+
+.docpref {
+    color:gray;
+    display: flex;
+    justify-content: left;
+    height: 1%;
+}
+
+
+
+
+
+@media (max-width: 1000px) {
+    bar {
+        background: rgba(0, 0, 0, 0.4);
+        width: 338px;
+        height: 1080px;
+        border-right: 1px rgba(104, 104, 104, 0.3) solid;
+        
+        flex-direction: column;
+        overflow: auto;
+        display:none; /* change to FLEX when showed*/
+    }
+}
