@@ -10,10 +10,20 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "axios": "^1.8.4",
     "bootstrap": "^5.3.3",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "express-session": "^1.18.1",
+    "io": "^1.5.3",
+    "localstorage-polyfill": "^1.0.1",
     "react": "^19.0.0",
     "react-bootstrap": "^2.10.9",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "request": "^2.88.2",
+    "socket.io": "^4.8.1",
+    "sqlite": "^5.1.1",
+    "sqlite3": "^5.1.7"
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",

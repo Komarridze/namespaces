@@ -1,0 +1,50 @@
+* {
+    --orangeplus: #ffb84c;
+    --navblack: #0d0c0f;
+    --menugray: #161618;
+    --almostwhite: #f1eeee;
+    --turquoise: #03cf8d;
+}
+
+
+@font-face {
+    font-family: Monolisa;
+    src: url("/fonts/Monolisa R.otf");
+    font-style: normal;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: Monolisa;
+    src: url("/fonts/Monolisa RI.otf");
+    font-style: italic;
+    font-weight: 400;
+}
+
+
+@font-face {
+    font-family: Monolisa;
+    src: url("/fonts/Monolisa B.otf");
+    font-style: bold;
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: Monolisa;
+    src: url("/fonts/Monolisa BI.otf");
+    font-style: bold italic;
+    font-weight: 700;
+}
+
+.oplus {
+    background-color: var(--orangeplus);
+}
+
+.navblack {
+    background-color: var(--navblack);
+}
+
+.mgray {
+    background-color: var(--menugray);
+}
+

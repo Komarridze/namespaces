@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- META -->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    
+    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="../css/inherit.css">
+  </head>
+<body>
+<nav class="navblack">
+    <img src="/images/Logo.svg" alt="NAMESPACES" height="39px" width="220px"/>
+</nav>
+
+<div class="container">
+    <div class="menutextlarge">The message is clear. <br/> No names. Only <i>spaces</i>.</div>
+    <div class="namespace">Use namespace :<span id="namespaceName">namespace</span>:</div>
+    <div class="menutext">Already have a namespace? <span class="namespace">Log in.</span></div>
+    <div class="menutextsmall" style="margin-top: 100px;">Made for private usage by KNTTK.<br/> © Komarridze 2025</div>
+</div>
+</body>
+
+
+<script>
+
+function RNamespace(length) {
+    let result = '';
+    const characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
+    
+    // Loop to generate characters for the specified length
+    for (let i = 0; i < length; i++) {
+        const randomInd = Math.floor(Math.random() * characters.length);
+        result += characters.charAt(randomInd);
+    }
+    return result;
+}
+
+document.getElementById('namespaceName').innerHTML = RNamespace(7);
+
+
+</script>
+
