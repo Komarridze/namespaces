@@ -56,6 +56,10 @@ app.get('/', urlencodedParser, async(req, res) => {
 
 })
 
+app.get('/auth', urlencodedParser, async(req, res) => {
+    res.render('auth-login')
+})
+
 
 const setup = async () => {
     // const db = await dbPromise;

@@ -15,13 +15,6 @@ nav {
     
 }
 
-.main {
-    display: flex;
-    flex-direction: column;
-    justify-content: left;
-    align-items: center;
-
-}
 
 .container {
     display: flex;
@@ -29,9 +22,13 @@ nav {
     flex: 1 1 auto;
     justify-content: center;
     align-items: center;
+    text-align: center;
     height: calc(100vh - 75px);
     width: 100vw;
-    background-color: var(--menugray);
+    background: var(--menugray);
+    background-image: radial-gradient(rgb(168, 168, 168) 1px, transparent 0);
+    background-size: 80px 80px;
+    background-position: -4px -10px;
     gap:30px;
     overflow-y: auto;
 }

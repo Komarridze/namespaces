@@ -1,0 +1,135 @@
+body {
+    background: rgb(226,181,122);
+    background: linear-gradient(173deg, rgba(226,181,122,1) 30%, rgba(255,178,77,1) 100%);
+    display: flex;
+    flex-direction: column;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 75px;
+    width:100vw;
+    padding: 1em;
+    
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: calc(100vh - 75px);
+    width: 100vw;
+    background: var(--menugray);
+    background-image: radial-gradient(rgb(168, 168, 168) 1px, transparent 0);
+    background-size: 80px 80px;
+    background-position: -4px 17px;
+    gap:30px;
+    overflow-y: auto;
+}
+
+.console {
+    text-align: left;
+    width: 60%;
+    height: calc(100vh - 125px);
+    overflow-y:auto;
+}
+
+.menutextlarge {
+    color:var(--almostwhite);
+    font-family: Monolisa;
+    font-weight: 700;
+    font-size: xx-large;
+}
+
+.menutext {
+    color:var(--almostwhite);
+    font-family: Monolisa;
+    font-weight: 700;
+    font-size: normal;
+}
+
+.menutextnormal {
+    color:var(--almostwhite);
+    font-family: Monolisa;
+    font-weight: 400;
+    font-size: normal;
+}
+
+.menutextsmall {
+    color:gray;
+    font-family: Monolisa;
+    font-weight: 400;
+    font-size: small;
+}
+
+.loginbox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.outlined {
+    color: var(--turquoise);
+    border: 1px solid var(--turquoise);
+    font-family: Monolisa;
+    font-style: normal;
+    font-weight: 400;
+    padding: 1em;
+}
+
+.namespace {
+    color: var(--turquoise);
+    border: 1px solid var(--turquoise);
+    font-family: Monolisa;
+    font-style: normal;
+    font-weight: 400;
+    padding: 1em;
+}
+
+.namespace:hover {
+    background-color: var(--turquoise);
+    color:var(--navblack);
+    cursor: pointer !important;
+}
+
+.input {
+    background-color: transparent;
+    border-color: transparent;
+    outline: none;
+    font-family: Monolisa;
+    color:var(--almostwhite);
+    text-align: center;
+    border-bottom: 1px dashed var(--almostwhite);
+}
+
+.input::placeholder {
+    text-align: center;
+}
+
+yel {
+    color: rgb(214, 214, 18);
+}
+
+gr {
+    color:rgb(60, 175, 122);
+}
+
+bl {
+    color:rgb(66, 121, 240);
+}
+
+purp {
+    color:rgb(154, 45, 226);
+}
+
+
+
+@media (max-width: 1000px) {
+    
+}
