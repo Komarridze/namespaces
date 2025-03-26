@@ -76,6 +76,17 @@ nav {
     cursor: pointer !important;
 }
 
+.input {
+    background-color: transparent;
+    border-color: transparent;
+    outline: none;
+    font-family: Monolisa;
+    color:var(--almostwhite);
+    text-align: center;
+    width:5em;
+    cursor:pointer !important;
+}
+
 @media (max-width: 1000px) {
     
 }

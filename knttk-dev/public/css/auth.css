@@ -103,10 +103,12 @@ nav {
     border-color: transparent;
     outline: none;
     font-family: Monolisa;
-    color:var(--almostwhite);
     text-align: center;
+    display: inline;
     border-bottom: 1px dashed var(--almostwhite);
+    color:var(--almostwhite);
 }
+
 
 .input::placeholder {
     text-align: center;

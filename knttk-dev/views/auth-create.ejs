@@ -19,12 +19,12 @@
 
 <div class="container">
     <!-- <div class="namespace">Use namespace :<span id="namespaceName">namespace</span>:</div> -->
-    <div class="menutextlarge">Log into your namespace</div>
+    <div class="menutextlarge">Create a new namespace</div>
     <div class="menutext outlined"><gr><i>const</i> char*</gr> <yel>space</yel></div>
-    <div class="menutext"><input class="input" id="name" placeholder="namespace" maxlength="7" style="width: 12em"></div>
+    <div class="menutext"><input class="input" id="name" placeholder="namespace" maxlength="7" style="width: 12em" value='<%= data.namespace %>'></div>
     <div class="menutext outlined"><gr>char*</gr> <yel>pwd</yel></div>
     <div class="menutext"><input class="input" id="password" placeholder="password" maxlength="15" style="width: 12em;"></div>
-    <div class="menutext namespace" style="min-width: 20%;">Enter</div>
+    <div class="menutext namespace" style="min-width: 20%;">Create namespace</div>
 
     
     
@@ -34,19 +34,7 @@
 
 <script>
 
-function RNamespace(length) {
-    let result = '';
-    const characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
-    
-    // Loop to generate characters for the specified length
-    for (let i = 0; i < length; i++) {
-        const randomInd = Math.floor(Math.random() * characters.length);
-        result += characters.charAt(randomInd);
-    }
-    return result;
-}
 
-document.getElementById('namespaceName').innerHTML = RNamespace(7);
 
 
 </script>

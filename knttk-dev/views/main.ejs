@@ -17,30 +17,27 @@
     <img src="/images/Logo.svg" alt="NAMESPACES" height="39px" width="220px"/>
 </nav>
 
-<div class="container">
-    <div class="menutextlarge">Creative is easy. <br/> More names. More <i>spaces</i>.</div>
-    <div class="namespace">Use namespace :<span id="namespaceName">namespace</span>:</div>
-    <div class="menutext">Already have a namespace? <span class="namespace">Log in.</span></div>
+<form id="main" action="/auth" method="POST" class="container">
+    <div class="menutextlarge">Creative is easy. <br/> Less names. More <i>spaces</i>.</div>
+    <div class="namespace" onclick="submitAuth(0)">Use namespace :<input class="input" name="namespace" id="namespaceName" readonly value='<%= data.namespace %>'></input>:</div>
+    <div class="menutext" onclick="submitAuth(1)">Already have a namespace? <span class="namespace">Log in.</span></div>
     <div class="menutextsmall" style="margin-top: 100px;">Made for private usage by KNTTK.<br/> © Komarridze 2025</div>
-</div>
+</form>
 </body>
-
 
 <script>
 
-function RNamespace(length) {
-    let result = '';
-    const characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
-    
-    // Loop to generate characters for the specified length
-    for (let i = 0; i < length; i++) {
-        const randomInd = Math.floor(Math.random() * characters.length);
-        result += characters.charAt(randomInd);
-    }
-    return result;
+function submitAuth(type) {
+  if (type == 0){
+    document.getElementById('main').submit();
+  }
+  else {
+    let temp = document.getElementById('namespaceName').value;
+    document.getElementById('namespaceName').value = 'login';
+    document.getElementById('main').submit();
+    document.getElementById('namespaceName').value = temp;
+  }
 }
-
-document.getElementById('namespaceName').innerHTML = RNamespace(7);
 
 
 </script>
