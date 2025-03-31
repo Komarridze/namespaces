@@ -1,0 +1,29 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+    width: 100vw;
+    background: var(--menugray);
+    background-image: radial-gradient(rgb(168, 168, 168) 1px, transparent 0);
+    background-size: 80px 80px;
+    background-position: -4px -10px;
+    overflow-y: auto;
+}
+
+.menutextlarge {
+    color:var(--turquoise);
+    font-family: Monolisa;
+    font-weight: 700;
+    font-size: xx-large;
+}
+
+.menutext {
+    color:var(--almostwhite);
+    font-family: Monolisa;
+    font-weight: 700;
+    font-size: normal;
+}

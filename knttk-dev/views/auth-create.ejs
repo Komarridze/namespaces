@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- META -->
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
     
     <link rel="stylesheet" href="../css/auth.css">
@@ -17,23 +16,29 @@
     <img src="/images/Logo.svg" alt="NAMESPACES" height="39px" width="220px"/>
 </nav>
 
-<div class="container">
-    <!-- <div class="namespace">Use namespace :<span id="namespaceName">namespace</span>:</div> -->
+<form id="auth" class="container" action="/SCRIPTED" method="POST">
+   <input style="display: none;" value="new" name="method">
     <div class="menutextlarge">Create a new namespace</div>
     <div class="menutext outlined"><gr><i>const</i> char*</gr> <yel>space</yel></div>
-    <div class="menutext"><input class="input" id="name" placeholder="namespace" maxlength="7" style="width: 12em" value='<%= data.namespace %>'></div>
+    <div class="menutext"><input class="input" id="name" name="name" placeholder="namespace" maxlength="7" style="width: 12em" value='<%= data.namespace %>'></div>
     <div class="menutext outlined"><gr>char*</gr> <yel>pwd</yel></div>
-    <div class="menutext"><input class="input" id="password" placeholder="password" maxlength="15" style="width: 12em;"></div>
-    <div class="menutext namespace" style="min-width: 20%;">Create namespace</div>
+    <div class="menutext"><input class="input" id="password" name="pwd" placeholder="password" maxlength="15" style="width: 12em;"></div>
+    <div class="menutext namespace" style="min-width: 20%;" onclick="completeAuth()">Create namespace</div>
 
     
     
-</div>
+</form>
 </body>
 
 
 <script>
 
+function completeAuth() {
+  let ns = document.getElementById('name').value;
+  document.getElementById('auth').action = `/space/${ns}`;
+  document.getElementById('auth').submit();
+  
+}
 
 
 

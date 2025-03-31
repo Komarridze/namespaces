@@ -20,7 +20,10 @@ import 'localstorage-polyfill'
 import request from 'request'
 import { channel } from 'diagnostics_channel'
 import { url } from 'node:inspector'
+import { resolveSoa } from 'node:dns'
 
+import * as bcrypt from 'bcrypt';
+const saltRounds = 10;
 
 // >> Server
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -73,7 +76,7 @@ app.get('/', urlencodedParser, async(req, res) => {
             let randomInd = Math.floor(Math.random() * characters.length);
             ns += characters.charAt(randomInd);
         }
-        namespaces = await db.all(`SELECT * FROM Namespaces WHERE namespace = '${ns}'` )
+        namespaces = await db.all(`SELECT * FROM Namespaces WHERE namespace = '${ns}'`)
     }
 
 
@@ -84,15 +87,99 @@ app.get('/', urlencodedParser, async(req, res) => {
 
 })
 
+app.get('/auth', urlencodedParser, async(req, res) => {
+    res.render('auth-login');
+})
+
 app.post('/auth', urlencodedParser, async(req, res) => {
 
     let namespace = req.body.namespace;
+
+    //?
     console.log(`[ OK ] POST : auth > Request for :${req.body.namespace}:.`);
 
     if (namespace == 'login') {res.render('auth-login')}
     else {res.render('auth-create', {data:{namespace:namespace}})}
 
 })
+
+
+app.get('/space/:id', urlencodedParser, async(req, res) => {
+    res.render('405');
+})
+
+app.post('/space/:id', urlencodedParser, async(req, res) => {
+
+    const db = await dbPromise;
+    //?
+    console.log(`[ OK ] POST : space + > Request for :${req.params.id}:.`);
+
+
+    if (req.body.name.length != 7) {alert('Invalid namespace or password. Please try again.')}
+    else {
+
+        switch (req.body.method) {
+
+            case 'new':
+
+
+                const hashed = await bcrypt.hash(req.body.pwd, saltRounds);
+
+
+                await db.run('INSERT INTO Namespaces (namespace, alias, pwd, rank, workspaces) VALUES (?, ?, ?, ?, ?)', req.body.name, `Guest${req.body.name}`, hashed, 0, '0000000;');
+
+                req.session.namespace = req.body.name;
+                req.session.status = 'signed';
+                res.render('workspace', {data:{name:req.body.name, alias:`Guest${req.body.name}`}});
+
+                break;
+            
+
+            case 'login':
+
+                let users = await db.all('SELECT * FROM Namespaces WHERE namespace = (?)', req.body.name);
+                if (users.length == 0) {alert('User not found. Please try again.');break;}
+                else {
+                    bcrypt.compare(req.body.pwd, users[0].pwd, (err, result) => {
+                        if (err) {alert('An error occured. Please try again.');}
+
+                        if (result) {
+                            req.session.namespace = req.body.name;
+                            req.session.status = 'signed';
+                            
+                            res.render('workspace', {data:{name:req.body.name, alias:users[0].alias}});
+                            
+
+                        }
+                        else {
+                            alert ('Password not matched, please try again.')
+                        }
+
+
+                    })
+                    break;
+                }
+
+
+                break; //? Just in case
+
+
+
+
+
+
+
+        }
+
+
+    }
+    
+
+    
+
+})
+
+
 
 
 const setup = async () => {

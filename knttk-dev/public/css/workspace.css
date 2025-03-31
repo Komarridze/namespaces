@@ -1,0 +1,105 @@
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 75px;
+    width:100vw;
+    padding: 1em;
+    
+}
+
+.namespace {
+    color: var(--turquoise);
+    border: 1px solid var(--turquoise);
+    font-family: Monolisa;
+    font-style: normal;
+    font-weight: 400;
+    font-size:small;
+    padding: 0.5em 1em 0.5em 1em;
+    cursor: pointer !important;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    width: 100vw;
+}
+
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--normalgray);
+    width:256px;
+    color:var(--almostwhite);
+    font-family: Monolisa;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.sidebar .button {
+    height: 35px;
+    width: 35px;
+    border-radius: 4px;
+    background-color: transparent;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.sidebar .button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    cursor: pointer !important;
+}
+
+.sidebar .top {
+    display: flex;
+    flex-direction: column;
+    padding:1em;
+    height: 130px;
+    background-color: rgba(255, 255, 255, 0.04);
+    gap:1em;
+}
+
+.sidebar .bottom {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 130px);
+    padding: 0.5em;
+}
+
+line {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.workspace {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: calc(100vh);
+    width: calc(100vw - 256px);
+    background: var(--menugray);
+    background-image: radial-gradient(rgb(168, 168, 168) 1px, transparent 0);
+    background-size: 80px 80px;
+    background-position: -4px -10px;
+    gap:30px;
+    overflow-y: auto;
+}
+
+@media (max-width:1000px) {
+    .sidebar {
+        display:none;
+    }
+    .workspace {
+        width: 100vw;
+    }
+}
