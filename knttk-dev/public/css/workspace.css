@@ -9,8 +9,8 @@ nav {
 }
 
 .namespace {
-    color: var(--turquoise);
-    border: 1px solid var(--turquoise);
+    color: var(--almostwhite);
+    border: 1px solid var(--almostwhite);
     font-family: Monolisa;
     font-style: normal;
     font-weight: 400;
@@ -18,6 +18,7 @@ nav {
     padding: 0.5em 1em 0.5em 1em;
     cursor: pointer !important;
 }
+
 
 .container {
     display: flex;
@@ -50,6 +51,17 @@ nav {
 
 }
 
+.sidebar .buttonnh {
+    height: 35px;
+    width: 35px;
+    border-radius: 4px;
+    background-color: transparent;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .sidebar .button:hover {
     background-color: rgba(255, 255, 255, 0.2);
     cursor: pointer !important;
@@ -60,8 +72,10 @@ nav {
     flex-direction: column;
     padding:1em;
     height: 130px;
-    background-color: rgba(255, 255, 255, 0.04);
     gap:1em;
+    background:
+  radial-gradient(ellipse at top, #e66465, transparent),
+  radial-gradient(ellipse at bottom, #63c414, transparent);
 }
 
 .sidebar .bottom {
@@ -69,13 +83,48 @@ nav {
     flex-direction: column;
     height: calc(100vh - 130px);
     padding: 0.5em;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    gap:1px;
+    border-top: 5px solid rgb(71, 65, 65);
+    
 }
 
-line {
+line.tab {
+    margin-bottom:10px;
+}
+
+
+.sidebar .top > line {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+}
+
+
+
+.sidebar .bottom > line {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;   
+    padding: 0 0.5em 0 0.5em;
+    gap:5px; 
+    border-radius: 3px;
+    
+}
+
+.sidebar .bottom>line.active {
+    border-left: 3px solid transparent;
+    padding: 0 0.2em 0 0.2em;
+}
+
+.sidebar .bottom>line.active:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-left: 3px solid var(--turquoise);
+    cursor: pointer !important;
 }
 
 .workspace {
@@ -102,4 +151,21 @@ line {
     .workspace {
         width: 100vw;
     }
+}
+
+
+div.ioupdate {
+    background:rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(0.4px);
+    border-radius: 5px;
+    height: 300px;
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--almostwhite);
+    font-family: Monolisa;
+    font-weight: 400;
+    font-style: normal;
+    font-size: xx-large;
 }
