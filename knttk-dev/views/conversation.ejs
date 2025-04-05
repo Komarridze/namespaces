@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <script src="https://kit.fontawesome.com/867a828ed9.js" crossorigin="anonymous"></script>
     
-    <title>Your Workspace</title>
+    <title>Conversations</title>
     <!-- /const -->
     <link rel="stylesheet" href="/css/workspace.css">
     <link rel="stylesheet" href="/css/inherit.css">
@@ -33,7 +33,7 @@
     
     <line>
         <div class="namespace"><i>Admin</i></div>
-        <form style="display: none;" method="GET" action="/logout" id="logout"></form><div class="button" onclick="document.getElementById('logout').submit()"><i class="fa fa-right-to-bracket"></i></div>
+        <form method="GET" action="/logout" id="logout"><div class="button" onclick="document.getElementById('logout').submit()"><i class="fa fa-right-to-bracket"></i></div></form>
     </line>
 
         
@@ -43,7 +43,7 @@
       <line class="active"><div class="buttonnh"><i class="fa-solid fa-code-fork"></i></div>My Space</line>
       <line class="active"><div class="buttonnh"><i class="fa-solid fa-compass"></i></div>Flow</line>
       <line class="active"><div class="buttonnh"><i class="fa-solid fa-address-book"></i></div>Network</line>
-      <form style="display: none;" action="/s/<%= data.user.namespace %>/c" method="POST" id="convos"></form><line class="active" onclick="document.getElementById('convos').submit()"><div class="buttonnh"><i class="fa-solid fa-user"></i></div>Conversations</line>
+      <line class="active"><div class="buttonnh"><i class="fa-solid fa-user"></i></div>Conversations</line>
       <line class="active"><div class="buttonnh"><i class="fa-solid fa-folder"></i></div>Public Spaces</line>
       <line class="active"><div class="buttonnh"><i class="fa-solid fa-clock-rotate-left"></i></div>Activity</line>
     </div>

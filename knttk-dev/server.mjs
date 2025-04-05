@@ -54,8 +54,23 @@ const router = Router()
 const io = new Server(server)
 
 
+
+app.get('/logout', urlencodedParser, async(req, res) => {
+    req.session.namespace = "none";
+    req.session.status = "unsigned";
+    req.session.user = {};
+    res.redirect('/');
+})
+
+
 app.get('/', urlencodedParser, async(req, res) => {
 
+    if (req.session.status == 'signed') {
+        res.redirect(`/s/${req.session.namespace}`)
+    }
+
+    else {
+        
     const db = await dbPromise;
 
     let ns = '';
@@ -84,6 +99,7 @@ app.get('/', urlencodedParser, async(req, res) => {
 
     res.render('main', {data:{namespace:ns}})
 
+}
 
 })
 
@@ -104,11 +120,17 @@ app.post('/auth', urlencodedParser, async(req, res) => {
 })
 
 
-app.get('/space/:id', urlencodedParser, async(req, res) => {
-    res.render('405');
+app.get('/s/:id', urlencodedParser, async(req, res) => {
+    if (req.session.status == 'signed') {
+        res.render('workspace', {data:{user: req.session.user}});
+    }
+    else {
+        res.render('405');
+
+    }
 })
 
-app.post('/space/:id', urlencodedParser, async(req, res) => {
+app.post('/s/:id', urlencodedParser, async(req, res) => {
 
     const db = await dbPromise;
     //?
@@ -126,12 +148,13 @@ app.post('/space/:id', urlencodedParser, async(req, res) => {
                 const hashed = await bcrypt.hash(req.body.pwd, saltRounds);
 
 
-                await db.run('INSERT INTO Namespaces (namespace, alias, pwd, rank, workspaces) VALUES (?, ?, ?, ?, ?)', req.body.name, `Guest${req.body.name}`, hashed, 0, '0000000;');
+                await db.run('INSERT INTO Namespaces (namespace, alias, pwd, rank, workspaces, conversations) VALUES (?, ?, ?, ?, ?)', req.body.name, `Guest${req.body.name}`, hashed, 0, '00000000000;', '00000000000;');
 
                 req.session.namespace = req.body.name;
                 req.session.status = 'signed';
-                res.render('workspace', {data:{name:req.body.name, alias:`Guest${req.body.name}`}});
+                req.session.user = {namespace:users[0].namespace, alias:`Guest${req.body.name}`, rank:users[0].rank}
 
+                res.redirect(`/s/${req.session.namespace}`);
                 break;
             
 
@@ -146,8 +169,9 @@ app.post('/space/:id', urlencodedParser, async(req, res) => {
                         if (result) {
                             req.session.namespace = req.body.name;
                             req.session.status = 'signed';
+                            req.session.user = {namespace:users[0].namespace, alias:users[0].alias, rank:users[0].rank}
                             
-                            res.render('workspace', {data:{name:req.body.name, alias:users[0].alias}});
+                            res.redirect(`/s/${users[0].namespace}`);
                             
 
                         }
@@ -173,10 +197,21 @@ app.post('/space/:id', urlencodedParser, async(req, res) => {
 
 
     }
-    
 
-    
+})
 
+app.get('/s/:id/c', urlencodedParser, async(req, res) => {
+    if (req.session.status == 'signed') {
+        
+        console.log(`[ OK ] GET : space + c > Request for :${req.params.id}:.`);
+
+
+        res.render('conversation', {data:{name:req.session.user.namespace, alias:req.session.user.alias}});
+    }
+    else {
+        res.render('405');
+
+    }
 })
 
 

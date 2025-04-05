@@ -8,9 +8,10 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
     
+    <title>Login</title>
     
-    <link rel="stylesheet" href="../css/auth.css">
-    <link rel="stylesheet" href="../css/inherit.css">
+    <link rel="stylesheet" href="/css/auth.css">
+    <link rel="stylesheet" href="/css/inherit.css">
   </head>
 <body>
 <nav class="navblack">
@@ -36,7 +37,7 @@
 
 function completeAuth() {
   let ns = document.getElementById('name').value;
-  document.getElementById('auth').action = `/space/${ns}`;
+  document.getElementById('auth').action = `/s/${ns}`;
   document.getElementById('auth').submit();
   
 }
